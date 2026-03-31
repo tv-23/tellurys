@@ -670,7 +670,7 @@ body.tt-noise .tt-bg-noise:before {
 	height: calc(100% + 20rem);
 	z-index: 0;
 	pointer-events: none;
-	background-image: url(../images/bg-noise.png);
+	background-image: url(../images/bg-noise.webp);
 	background-position: 50%;
 	animation: BgNoise 1s steps(2) infinite;
 }

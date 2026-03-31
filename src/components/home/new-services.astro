@@ -1,13 +1,13 @@
 ---
 const services = [
   {
-    title: "Géophysique" ,
+    title: "Géophysique",
     items: ["Sismique", "Électrique", "Magnétique", "Radar (GPR)"],
     url: "/géophysique",
     img: "/assets/images/services/IMG-20180209-WA0010.jpg",
   },
   {
-    title:"Hydrogéologie",
+    title: "Hydrogéologie",
     items: ["Forages", "Pompages", "Essais Hydrauliques", "Modélisation SIG"],
     url: "/hydrogéologie",
     img: "/assets/images/services/hydrogeologie.jpeg",
@@ -42,12 +42,12 @@ const services = [
 <section class="hero-section" id="hero-trigger">
   <div class="zoom-container">
     <!-- Nuages derrière -->
-   <img
-  src="assets/images/services/cloud32.webp"
-  data-src="assets/images/services/cloud32.webp"
-  class="cloud cloud-back"
-  style="--d: 45s;"
-/>
+    <img
+      src="assets/images/services/cloud32.webp"
+      data-src="assets/images/services/cloud32.webp"
+      class="cloud cloud-back"
+      style="--d: 45s;"
+    />
 
     <!-- TITRE (Monte derrière la montagne) -->
     <div class="title-wrapper" id="parallax-title">
@@ -68,12 +68,12 @@ const services = [
     </div>
 
     <!-- Nuages devant -->
-     <img
-  src="assets/images/services/cloud32-1.webp"
-  data-src="assets/images/services/cloud32-1.webp"
-  class="cloud cloud-front"
-  style="--d: 25s;"
-/>
+    <img
+      src="assets/images/services/cloud32-1.webp"
+      data-src="assets/images/services/cloud32-1.webp"
+      class="cloud cloud-front"
+      style="--d: 25s;"
+    />
   </div>
 </section>
 
@@ -84,9 +84,7 @@ const services = [
       services.map((service, index) => (
         <div class="service-card" style="transition-delay: 0.1s;">
           <div class="tech-line" />
-          <h3>
-            {service.title}
-          </h3>
+          <h3>{service.title}</h3>
 
           <ul class="service-items">
             {service.items.map((item) => (
@@ -148,35 +146,33 @@ const services = [
   heroObserver.observe(document.getElementById("hero-trigger"));
   servicesObserver.observe(document.getElementById("services-trigger"));
 
-
-
   document.addEventListener("DOMContentLoaded", () => {
-  const trigger = document.querySelector("#hero-trigger");
-  if (!trigger) return;
+    const trigger = document.querySelector("#hero-trigger");
+    if (!trigger) return;
 
-  const images = document.querySelectorAll("#hero-trigger img.cloud");
+    const images = document.querySelectorAll("#hero-trigger img.cloud");
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
 
-        images.forEach((img) => {
-          const realSrc = img.dataset.src;
-          if (realSrc) {
-            img.src = realSrc;
-          }
+          images.forEach((img) => {
+            const realSrc = img.dataset.src;
+            if (realSrc) {
+              img.src = realSrc;
+            }
+          });
+
+          observer.unobserve(trigger);
         });
+      },
+      {
+        threshold: 0.3,
+        rootMargin: "200px",
+      },
+    );
 
-        observer.unobserve(trigger);
-      });
-    },
-    {
-      threshold: 0.3,
-      rootMargin: "200px",
-    }
-  );
-
-  observer.observe(trigger);
-});
+    observer.observe(trigger);
+  });
 </script>
