@@ -1,100 +1,91 @@
-<div class="tt-section no-padding-top" >
-    <div class="tt-section-inner" >
-
+<div class="tt-section no-padding-top">
+    <div class="tt-section-inner">
         <div class="tt-clipper" id="reel-section">
-
-            <a href="https://www.youtube.com/watch?v=6nGs9iGrpok"
+            <a
+                href="https://www.youtube.com/watch?v=6nGs9iGrpok"
                 class="tt-clipper-inner not-hide-cursor"
-                data-cursor="Lire&lt;br&gt;Le Reel"
+                data-cursor="Lire<br>Le Reel"
                 data-fancybox=""
-                data-caption="My awesome showreel. :)">
-
-                <div class="tt-clipper-bg" >
-
-                 <video
-    class="lazy-video"
-    loop=""
-    muted=""
-    autoplay=""
-    playsinline=""
-    preload="metadata"
-    poster="assets/images/Capture d’écran 2026-03-12 125507.png"
-    data-poster="assets/images/Capture d’écran 2026-03-12 125507.png"
->
+                data-caption="My awesome showreel. :)"
+            >
+                <div class="tt-clipper-bg">
+                    <video
+                        class="lazy-video"
+                        loop=""
+                        muted=""
+                        autoplay=""
+                        playsinline=""
+                        preload="metadata"
+                        data-poster="assets/images/Capture d’écran 2026-03-12 125507.png"
+                    >
                         <!-- ONLY CHANGE: add data-src, keep src untouched -->
                         <source
                             src="/assets/vds/WhatsApp Video 2026-03-12 at 11.49.46 AM.mp4"
                             data-src="/assets/vds/WhatsApp Video 2026-03-12 at 11.49.46 AM.mp4"
                             type="video/mp4"
-                        >
+                        />
 
                         <source
                             src="/assets/vds/WhatsApp Video 2026-03-12 at 11.49.46 AM.mp4"
                             type="video/webm"
-                        >
+                        />
                     </video>
-
                 </div>
 
-                <div class="tt-clipper-content" >
-
-                    <div class="tt-clipper-btn" >
+                <div class="tt-clipper-content">
+                    <div class="tt-clipper-btn">
                         <i class="fa-solid fa-play"></i>
                     </div>
-
                 </div>
-
             </a>
-
         </div>
-
     </div>
 </div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-  const section = document.querySelector("#reel-section");
-  if (!section) return;
+    document.addEventListener("DOMContentLoaded", () => {
+        const section = document.querySelector("#reel-section");
+        if (!section) return;
 
-  const video = section.querySelector("video.lazy-video");
-  if (!video) return;
+        const video = section.querySelector("video.lazy-video");
+        if (!video) return;
 
-  const sources = video.querySelectorAll("source");
+        const sources = video.querySelectorAll("source");
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
 
-        // 1. LOAD POSTER ONLY WHEN IN VIEW
-        const poster = video.getAttribute("data-poster");
-        if (poster) {
-          video.setAttribute("poster", poster);
-        }
+                    // 1. LOAD POSTER ONLY WHEN IN VIEW
+                    const poster = video.getAttribute("data-poster");
+                    if (poster) {
+                        video.setAttribute("poster", poster);
+                    }
 
-        // 2. LOAD VIDEO SOURCES
-        sources.forEach((source) => {
-          if (source.dataset.src) {
-            source.src = source.dataset.src;
-          }
-        });
+                    // 2. LOAD VIDEO SOURCES
+                    sources.forEach((source) => {
+                        if (source.dataset.src) {
+                            source.src = source.dataset.src;
+                        }
+                    });
 
-        video.load();
+                    video.load();
 
-        // 3. PLAY VIDEO
-        video.play().catch(() => {});
+                    // 3. PLAY VIDEO
+                    video.play().catch(() => {});
 
-        video.classList.add("loaded");
+                    video.classList.add("loaded");
 
-        observer.unobserve(section);
-      });
-    },
-    {
-      threshold: 0.4,
-      rootMargin: "200px",
-    }
-  );
+                    observer.unobserve(section);
+                });
+            },
+            {
+                threshold: 0.4,
+                rootMargin: "200px",
+            },
+        );
 
-  observer.observe(section);
-});
+        observer.observe(section);
+    });
 </script>
