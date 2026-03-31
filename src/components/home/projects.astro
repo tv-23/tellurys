@@ -138,7 +138,6 @@ const projects = [
 			console.log(section);
 
 			const images = section.querySelectorAll("img.lazy-img");
-			setTimeout(() => {
 				console.log(
 					"Setting up IntersectionObserver for lazy images...",
 				);
@@ -166,7 +165,6 @@ const projects = [
 				);
 
 				images.forEach((img) => observer.observe(img));
-			}, 1000);
 		});
 	</script>
 </section>
