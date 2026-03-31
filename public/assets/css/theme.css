@@ -3025,7 +3025,7 @@ body.ph-video-on:not(.ph-bg-is-light-on) #page-header .tt-scroll-down text {
 
 body.ph-image-on:not(.ph-bg-is-light-on) #page-header .tt-scroll-down .tt-scrd-icon,
 body.ph-video-on:not(.ph-bg-is-light-on) #page-header .tt-scroll-down .tt-scrd-icon {
-	color: var(--tt-force-to-light-color);
+	color: var(--tt-main-color);
 }
 
 body.ph-image-on:not(.ph-bg-is-light-on) #page-header .ph-share-trigger,
