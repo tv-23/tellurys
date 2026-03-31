@@ -1,0 +1,22 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SP from "../components/service-page.astro";
+
+const content = [
+    {
+        title: "Mines et carrières",
+        description: {
+            p1: "Nous accompagnons les exploitants dans la caractérisation, l’évaluation et l’optimisation des gisements.",
+            p2: "Prestations : Etude de faisabilité, caractérisation des gisements, évaluation des ressources minérales, planification des extractions, extension de carrières, études de qualité des matériaux.",
+        },
+        subtitle:{
+            p1:'Caractériser les gisements',
+            p2:'pour optimiser l’exploitation.',
+        }
+    },
+];
+---
+
+<Layout>
+    <SP  content={content} />
+</Layout>

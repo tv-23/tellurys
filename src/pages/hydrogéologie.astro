@@ -1,0 +1,22 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SP from "../components/service-page.astro";
+
+const content = [
+    {
+        title: "Hydrogéologie",
+        description: {
+            p1: "Nous accompagnons les collectivités, agriculteurs, industriels et organisations internationales dans la recherche et la gestion durable des ressources en eau.",
+            p2: "Prestations : recherche d’eau souterraine, études hydrogéologiques et hydrologiques, caractérisation des aquifères, analyses hydrochimiques, études piézométriques, localisation des zones aquifères, bilan hydrogéologique et étude des nappes.",
+        },
+        subtitle:{
+            p1:'Identifier, protéger et',
+            p2:'valoriser les ressources en eau.',
+        }
+    },
+];
+---
+
+<Layout>
+    <SP  content={content} />
+</Layout>

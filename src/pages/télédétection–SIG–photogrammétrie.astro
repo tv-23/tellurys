@@ -1,0 +1,22 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SP from "../components/service-page.astro";
+
+const content = [
+    {
+        title: "Télédétection – SIG – Photogrammétrie",
+        description: {
+            p1: "Nous exploitons les données satellitaires et les relevés drones pour fournir une vision précise et intégrée des territoires.",
+            p2: "Prestations : traitement multispectral et hyperspectral, détection des altérations minérales, études structurales, levés topographiques haute résolution, modèles 3D, bases de données et cartes thématiques.",
+        },
+        subtitle:{  
+            p1:'Une vision globale et',
+            p2:'précise des territoires grâce aux données spatiales.',
+        }
+    },
+];
+---
+
+<Layout>
+    <SP  content={content} />
+</Layout>

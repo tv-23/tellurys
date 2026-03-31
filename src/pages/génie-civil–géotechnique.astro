@@ -1,0 +1,22 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SP from "../components/service-page.astro";
+
+const content = [
+    {
+        title: "Génie civil – Géotechnique",
+        description: {
+            p1: "Nous fournissons des données essentielles à la conception, la sécurisation et la durabilité des ouvrages.",
+            p2: "Prestations : détection de cavités, études de stabilité, identification de zones fracturées, zonage des sols argileux, études pour tunnels et ouvrages d’art, évaluation de l’agressivité des sols, auscultation d’ouvrages.",
+        },
+        subtitle:{
+            p1:'Des données essentielles pour concevoir et',
+            p2:'sécuriser les ouvrages.',
+        }
+    },
+];
+---
+
+<Layout>
+    <SP  content={content} />
+</Layout>

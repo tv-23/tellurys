@@ -1,0 +1,22 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SP from "../components/service-page.astro";
+
+const content = [
+    {
+        title: "Environnement et risques naturels",
+        description: {
+            p1: "Nous aidons nos clients à anticiper, évaluer et réduire les impacts environnementaux liés à leurs activités.",
+            p2: "Prestations : études d’impact, plans de gestion environnementale et sociale, détection de pollutions, sécurisation des sondages (réseaux, cuves, risques pyrotechniques), gestion des déchets, protection des écosystèmes.",
+        },
+        subtitle:{
+            p1:'Des solutions fiables pour réduire les impacts et',
+            p2:'maîtriser les risques.',
+        }
+    },
+];
+---
+
+<Layout>
+    <SP  content={content} />
+</Layout>

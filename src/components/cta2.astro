@@ -1,0 +1,399 @@
+<style>
+    :root {
+        --orange: #bf4a1a;
+        --black: #121212;
+        --white: #efedea;
+        --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .cta-container {
+        position: relative;
+        width: 100%;
+        min-height: 120vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 100px 5%;
+    }
+
+    /* --- LA LENTILLE GÉOPHYSIQUE (Arrière-plan) --- */
+    .lens-bg {
+        position: absolute;
+        width: 700px;
+        height: 700px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 50%;
+        pointer-events: none;
+        transition: all 0.6s var(--ease);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .lens-inner {
+        width: 60%;
+        height: 60%;
+        border: 1px solid var(--orange);
+        border-radius: 50%;
+        background: radial-gradient(
+            circle,
+            rgba(179, 58, 27, 0.05) 0%,
+            transparent 70%
+        );
+        box-shadow: 0 0 80px rgba(179, 58, 27, 0.1);
+        position: relative;
+    }
+
+    /* --- MISE EN PAGE DU CONTENU --- */
+    .cta-content {
+        position: relative;
+        z-index: 10;
+        width: 100%;
+        max-width: 1300px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: flex-start;
+    }
+
+    .cta-header h2 {
+        font-size: clamp(2rem, 5vw, 4.5rem);
+        line-height: 0.9;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+    }
+
+    .cta-header p {
+        font-size: 1.1rem;
+        color: #777;
+        max-width: 450px;
+        line-height: 1.6;
+        margin-bottom: 40px;
+    }
+
+    /* --- LE FORMULAIRE ARRONDIE --- */
+    .modern-form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* .input-group {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 25px 35px;
+        border-radius: 100px; /* Forme pilule */
+        transition: all 0.4s var(--ease);
+        display: flex;
+        flex-direction: column;
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    .input-group:focus-within {
+        background: var(--white);
+        border-color: var(--orange);
+        transform: translateX(-15px);
+    }
+
+    .input-group label {
+        font-size: 10px;
+        color: var(--orange);
+        margin-bottom: 8px;
+        letter-spacing: 2px;
+    }
+
+    .input-group input,
+    .input-group select,
+    .input-group textarea {
+        background: transparent;
+        border: none;
+        outline: none;
+        color: white;
+        font-size: 1.1rem;
+        width: 100%;
+        resize: none;
+    }
+
+    .input-group:focus-within input,
+    .input-group:focus-within select,
+    .input-group:focus-within textarea {
+        color: var(--black);
+    }
+
+    /* Style spécifique pour le select */
+    .input-group select {
+        cursor: pointer;
+        appearance: none;
+    } */
+
+    /* Ajustement pour le message (moins arrondi pour le texte long) */
+    .message-group {
+        border-radius: 30px;
+    }
+
+    /* --- BOUTON SUBMIT CIRCULAIRE --- */
+    .submit-container {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 20px;
+    }
+
+    .btn-submit {
+        width: 140px;
+        height: 140px;
+        background: var(--orange);
+        border-radius: 50%;
+        border: none;
+        color: white;
+        font-size: 10px;
+        cursor: pointer;
+        transition: 0.5s var(--ease);
+        box-shadow: 0 15px 40px rgba(179, 58, 27, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        line-height: 1.2;
+    }
+
+    .btn-submit:hover {
+        transform: scale(1.1) rotate(15deg);
+        background: var(--white);
+        color: var(--black);
+    }
+
+    /* Animation au chargement */
+    .is-visible .input-group {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    @media (max-width: 991px) {
+        .cta-content {
+            grid-template-columns: 1fr;
+        }
+        .lens-bg {
+            width: 400px;
+            height: 400px;
+        }
+        .submit-container {
+            justify-content: center;
+        }
+    }
+</style>
+
+<section class="cta-container" id="cta-section">
+    <!-- Lentille Interactive en Arrière-plan -->
+    <!-- <div class="lens-bg" id="lens">
+        <div class="lens-inner" id="lens-inner"></div>
+    </div> -->
+
+    <div class="cta-content">
+        <div class="cta-header">
+            <h2>
+                Travaillons <br /><span style="color:var(--orange)"
+                    >Ensemble</span>
+            </h2>
+            <p>
+                Vous avez une idée pour un nouveau projet ? Écrivez-nous ce que
+                vous avez en tête et parlons-en !
+            </p>
+          
+        </div>
+
+        <form
+                            id="tt-contact-form"
+                            class="tt-form tt-form-creative tt-form-lg"
+                        >
+                            <div
+                                id="tt-contact-form-messages"
+                                role="alert"
+                                
+                            >
+                                <div
+                                    class="tt-cfm-inner"
+                                    
+                                >
+                                </div>
+                                <div
+                                    class="tt-cfm-close hide-cursor"
+                                    
+                                >
+                                    <i class="fa-solid fa-xmark"></i>
+                                </div>
+                            </div>
+                            <!-- End contact form messages -->
+                        
+                            <div
+                                class="tt-contact-form-inner"
+                                
+                            >
+                        
+                                <div
+                                    class="tt-form-group tt-anim-fadeinup"
+                                    
+                                    style=""
+                                >
+                                    <label
+                                        >Quel est votre nom ? <span
+                                            class="required">*</span
+                                        ></label
+                                    >
+                                    <input
+                                        class="tt-form-control"
+                                        id="sender-name"
+                                        type="text"
+                                        name="name"
+                                        placeholder="Jean Dupont"
+                                        required=""
+                                    />
+                                </div>
+                        
+                                <div
+                                    class="tt-form-group tt-anim-fadeinup"
+                                    
+                                    style=""
+                                >
+                                    <label
+                                        >Quel est votre email ? <span
+                                            class="required">*</span
+                                        ></label
+                                    >
+                                    <input
+                                        class="tt-form-control"
+                                        id="sender-email"
+                                        type="email"
+                                        name="email"
+                                        placeholder="jean@exemple.com"
+                                        required=""
+                                    />
+                                </div>
+                        
+                                <div
+                                    class="tt-form-group tt-anim-fadeinup"
+                                    
+                                    style=""
+                                >
+                                    <label
+                                        >Quel service vous intéresse ? <span
+                                            class="required">*</span
+                                        ></label
+                                    >
+                                    <select
+                                        class="tt-form-control"
+                                        id="sender-option"
+                                        name="option"
+                                        required=""
+                                    >
+                                        <option
+                                            value=""
+                                            disabled=""
+                                            selected=""
+                                            >Veuillez choisir un service</option
+                                        >
+                                        <option value="Géophysique"
+                                            >Géophysique</option
+                                        >
+                                        <option value="Géologie"
+                                            >Géologie</option
+                                        >
+                                        <option value="Hydrogéologie"
+                                            >Hydrogéologie</option
+                                        >
+                                        <option value="Environnement et risques naturels"
+                                            >Environnement et risques naturels</option
+                                        >
+                                        <option value="Génie civil – Géotechnique"
+                                            >Génie civil – Géotechnique</option
+                                        >
+                                        <option value="Mines & Carrières"
+                                            >Mines & Carrières</option
+                                        >
+                                        <option value="Télédétection & SIG"
+                                            >Télédétection & SIG</option
+                                        >
+                                    </select>
+                                </div>
+                        
+                                <div
+                                    class="tt-form-group tt-anim-fadeinup"
+                                    
+                                    style=""
+                                >
+                                    <label
+                                        >Votre message <span class="required"
+                                            >*</span
+                                        ></label
+                                    >
+                                    <textarea
+                                        class="tt-form-control"
+                                        id="sender-message"
+                                        rows="5"
+                                        name="message"
+                                        placeholder="Bonjour, pouvez-vous m’aider avec ..."
+                                        required=""></textarea>
+                                </div>
+                        
+                                <div
+                                    class="tt-anim-fadeinup"
+                                    
+                                    style=""
+                                >
+                                    <div
+                                        class="magnetic-wrap tt-magnetic-btn"
+                                        
+                                    >
+                                        <button
+                                            type="submit"
+                                            class="tt-btn tt-btn-primary tt-magnetic-item"
+                                            ><span class="tt-btn-inner">
+                                                <span
+                                                    data-hover="Envoyer le message"
+                                                    >Envoyer le message</span
+                                                >
+                                            </span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+    </div>
+</section>
+
+<script>
+    // 1. EFFET PARALLAXE SUR LA LENTILLE
+    const lens = document.getElementById("lens");
+    const lensInner = document.getElementById("lens-inner");
+    const section = document.getElementById("cta-section");
+
+    section.addEventListener("mousemove", (e) => {
+        const x = (e.clientX - window.innerWidth / 2) / 20;
+        const y = (e.clientY - window.innerHeight / 2) / 20;
+        lens.style.transform = `translate(${x}px, ${y}px)`;
+    });
+
+    // 2. RÉACTION DE LA LENTILLE AU FOCUS
+    const inputs = document.querySelectorAll("input, select, textarea");
+    inputs.forEach((input) => {
+        input.addEventListener("focus", () => {
+            lensInner.style.boxShadow = "0 0 150px rgba(179, 58, 27, 0.4)";
+            lensInner.style.borderColor = "#ffffff";
+        });
+        input.addEventListener("blur", () => {
+            lensInner.style.boxShadow = "0 0 80px rgba(179, 58, 27, 0.1)";
+            lensInner.style.borderColor = "#b33a1b";
+        });
+    });
+
+    // 3. ANIMATION D'ENTRÉE
+    const observer = new IntersectionObserver(
+        (entries) => {
+            if (entries[0].isIntersecting) {
+                section.classList.add("is-visible");
+            }
+        },
+        { threshold: 0.2 },
+    );
+
+    observer.observe(section);
+</script>

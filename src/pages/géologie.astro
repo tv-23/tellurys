@@ -1,0 +1,22 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SP from "../components/service-page.astro";
+
+const content = [
+    {
+        title: "Géologie",
+        description: {
+            p1: "Nous réalisons des études géologiques complètes pour comprendre la structure, la composition et l’évolution des terrains.",
+            p2: "Prestations : cartographie géologique et structurale, géomorphologie, analyses minéralogiques et pétrographiques, caractérisation géomécanique, suivi des sondages, estimation des ressources minières.",
+        },
+        subtitle:{
+            p1:'Comprendre la composition et',
+            p2:'l’histoire des terrains pour mieux construire.',
+        }
+    },
+];
+---
+
+<Layout>
+    <SP  content={content} />
+</Layout>

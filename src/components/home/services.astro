@@ -1,0 +1,334 @@
+---
+const services = [
+  {
+    title: { partOne: "Géophysique", partTwo: "" },
+    description:
+      "Nous mobilisons les techniques géophysiques les plus avancées pour investiguer le sous-sol sans excavation.",
+    url: "/géophysique",
+    img: "/assets/images/services/IMG-20180209-WA0010.jpg",
+  },
+  {
+    title: { partOne: "Géologie", partTwo: "" },
+    description:
+      "Nous réalisons des études géologiques complètes pour comprendre la structure, la composition et l’évolution des terrains.",
+    url: "/géologie",
+    img: "/assets/images/services/Geologie.jpeg",
+  },
+  {
+    title: { partOne: "Hydrogéologie", partTwo: "" },
+    description:
+      "Nous accompagnons les collectivités, agriculteurs, industriels et organisations internationales dans la recherche et la gestion durable des ressources en eau.",
+    url: "/hydrogéologie",
+    img: "/assets/images/services/hydrogeologie.jpeg",
+  },
+  {
+    title: { partOne: "Environnement", partTwo: "et risques naturels" },
+    description:
+      "Nous aidons nos clients à anticiper, évaluer et réduire les impacts environnementaux liés à leurs activités.",
+    url: "/environnement-et-risques-naturels",
+    img: "/assets/images/services/Environnement.jpeg",
+  },
+  {
+    title: { partOne: "Génie civil", partTwo: "Géotechnique" },
+    description:
+      "Nous fournissons des données essentielles à la conception, la sécurisation et la durabilité des ouvrages.",
+    url: "/génie-civil–géotechnique",
+    img: "/assets/images/services/genie-civil-géotechnique.jpeg",
+  },
+  {
+    title: { partOne: "Mines et", partTwo: "carrières" },
+    description:
+      "Nous accompagnons les exploitants dans la caractérisation, l’évaluation et l’optimisation des gisements.",
+    url: "/mines-et-carrières",
+    img: "/assets/images/services/mines-et-carrieres.jpeg",
+  },
+  {
+    title: { partOne: "Télédétection – SIG –", partTwo: "Photogrammétrie" },
+    description:
+      "Nous exploitons les données satellitaires et les relevés drones pour fournir une vision précise et intégrée des territoires.",
+    url: "/télédétection–SIG–photogrammétrie",
+    img: "/assets/images/services/teledetection-sig-photogrammetrie.jpeg",
+  },
+];
+---
+
+<div class="tt-section">
+  <div class="tt-section-inner tt-wrap max-width-1500">
+    <div class="tt-row">
+      <!-- Left Column: Fixed/Intro text -->
+      <div class="tt-col-xl-4 margin-bottom-60">
+        <div class="tt-heading tt-heading-xxlg">
+          <h3 class="tt-heading-subtitle tt-text-reveal">
+            <span style="background-size: 200% 100%;">Ce que nous faisons</span>
+          </h3>
+          <h2 class="tt-heading-title tt-text-reveal">
+            <span style="background-size: 200% 100%;">Nos Services</span>
+          </h2>
+        </div>
+        <div
+          class="tt-text-uppercase max-width-400 margin-bottom-20 text-pretty tt-text-reveal"
+        >
+          <span style="background-size: 200% 100%;">
+            Des solutions scientifiques pour vos projets.
+          </span>
+        </div>
+      </div>
+
+      <!-- Right Column: The Kinetic Gate Accordion -->
+      <div class="tt-col-xl-8 tt-align-self-end">
+        <div class="gate-accordion-container" id="service-trigger">
+          {
+            services.map((service, index) => (
+              <div class="gate-item" data-index={index}>
+                <div class="gate-header">
+                  <div class="gate-title-wrap">
+                    <span class="gate-number">0{index + 1}</span>
+                    <h3 class="gate-title">
+                      {service.title.partOne} {service.title.partTwo}
+                    </h3>
+                  </div>
+                  <div class="gate-icon">→</div>
+                </div>
+
+                <div class="gate-body">
+                  <div class="gate-body-inner">
+                    <div
+                      class="gate-image"
+                      style={`background-image: url(${service.img})`}
+                    />
+                    <div class="gate-text-content">
+                      <p class="gate-description">{service.description}</p>
+                      <a href={service.url} class="gate-link">
+                        Découvrir le service
+                        <span class="link-line" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* DESIGN 3: KINETIC GATE STYLES */
+  .gate-accordion-container {
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .gate-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    overflow: hidden;
+    transition: background 0.4s ease;
+    /* On Load Initial State */
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  .gate-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+      opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Header / Title Area */
+  .gate-header {
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: padding 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .gate-title-wrap {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+  }
+
+  .gate-number {
+    font-family: monospace;
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 10px;
+  }
+
+  .gate-title {
+    font-size: clamp(1rem, 2vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .gate-title .secondary {
+    font-weight: 300;
+    opacity: 0.6;
+    font-size: 0.7em;
+  }
+
+  .gate-icon {
+    font-size: 2rem;
+    font-weight: 200;
+    transform: rotate(45deg);
+    transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 0.3;
+  }
+
+  /* Body / Reveal Area */
+  .gate-body {
+    max-height: 0;
+    opacity: 0;
+    transition:
+      max-height 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 0.4s ease;
+  }
+
+  .gate-body-inner {
+    padding: 0 0 60px 45px;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .gate-image {
+    width: 250px;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 2px;
+    filter: grayscale(1);
+    transform: scale(0.9) translateY(20px);
+    transition: 1s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .gate-text-content {
+    max-width: 400px;
+    transform: translateY(20px);
+    transition: 1s 0.1s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .gate-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #ccc;
+    margin-bottom: 15px;
+  }
+
+  .gate-link {
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    position: relative;
+    padding-bottom: 5px;
+  }
+
+  .link-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 1px;
+    background: #fff;
+    transition: width 0.4s ease;
+  }
+
+  /* ACTIVE STATE */
+  .gate-item.is-active {
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .gate-item.is-active .gate-header {
+    padding: 60px 0 30px 0;
+  }
+
+  .gate-item.is-active .gate-body {
+    max-height: 500px;
+    opacity: 1;
+  }
+
+  .gate-item.is-active .gate-icon {
+    transform: rotate(90deg);
+    opacity: 1;
+    color: #fff;
+  }
+
+  .gate-item.is-active .gate-image {
+    filter: grayscale(0);
+    transform: scale(1) translateY(0);
+    border-radius: 15px;
+  }
+
+  .gate-item.is-active .gate-text-content {
+    transform: translateY(0);
+  }
+
+  .gate-item.is-active .gate-link:hover .link-line {
+    width: 100%;
+  }
+
+  @media (max-width: 991px) {
+    .gate-body-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      padding-left: 0;
+    }
+    .gate-image {
+      width: 100%;
+      height: 200px;
+    }
+  }
+</style>
+
+<script>
+  function initGateAccordion() {
+    const items = document.querySelectorAll(".gate-item");
+    const trigger = document.getElementById("service-trigger");
+
+    // 1. STAGGERED ON-LOAD ANIMATION
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          items.forEach((item, index) => {
+            setTimeout(() => {
+              item.classList.add("is-visible");
+            }, index * 150);
+          });
+        }
+      },
+      { threshold: 0.1 },
+    );
+
+    if (trigger) observer.observe(trigger);
+
+    // 2. CLICK INTERACTION
+    items.forEach((item) => {
+      item.addEventListener("click", () => {
+        const isActive = item.classList.contains("is-active");
+
+        // Close all
+        items.forEach((i) => i.classList.remove("is-active"));
+
+        // Open clicked
+        if (!isActive) {
+          item.classList.add("is-active");
+        }
+      });
+    });
+  }
+
+  // Astro Lifecycle
+  initGateAccordion();
+  document.addEventListener("astro:after-swap", initGateAccordion);
+</script>

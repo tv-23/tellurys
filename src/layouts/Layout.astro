@@ -1,3 +1,17 @@
+---
+import Header from "../components/header.astro";
+import Message from "../components/message.astro";
+import Footer from "../components/footer.astro";
+import "../../public/assets/css/all.min.css";
+import "../../public/assets/css/fancybox.css";
+import "../../public/assets/css/swiper-bundle.min.css";
+import "../../public/assets/css/helper.css";
+import "../../public/assets/css/theme.css";
+import "../../public/assets/css/theme-light.css";
+import "../../public/assets/css/chat-boot.css";
+import "../../public/assets/css/new-services.css";
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -6,11 +20,130 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>tellurys</title>
+
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com/" />
+		<link
+			rel="preconnect"
+			href="https://fonts.gstatic.com/"
+			crossorigin=""
+		/>
+
+		<link href="/assets/font/css2" rel="stylesheet" />
+		<!-- Body font -->
+		<link href="/assets/font/css2(1)" rel="stylesheet" />
+		<!-- Secondary/Alter font -->
 	</head>
-	<body>
-		<slot />
+	<body
+		id="body"
+		class="tt-transition tt-noise tt-magic-cursor tt-smooth-scroll tt-header-scroll-on page-header-on ph-full-on ph-full-m-on ph-center-on ph-video-on tt-ph-visible ph-mask-on"
+	>
+		<div class="tt-bg-noise"></div>
+
+		<main id="body-inner">
+			<div id="magic-cursor" style="opacity: 1; visibility: inherit;">
+				<div
+					id="ball"
+					style="translate: none; rotate: none; scale: none; opacity: 1; border-width: 2px; height: 36px; width: 36px; transform: translate(-50%, -50%) translate(1078px, 50.9999px);"
+				>
+				</div>
+			</div>
+
+			<Header />
+
+			<slot />
+
+			
+		
+			<Message />
+
+			<Footer/>
+			<!-- End tt-footer -->
+
+			<!-- Begin scroll to top button
+				================================ -->
+				<a
+				href="#"
+				id="chat-button"
+				class="chat-icon"
+				style="background-color: #f2f1ee;
+				color: #bf4a1a;
+				width: 40px;
+				height: 40px;"
+			>
+				<i class="fa-solid fa-comment"></i>
+			</a>
+
+			<a href="#" class="tt-scroll-to-top">
+				<div class="magnetic-wrap">
+					<div class="tt-stt-progress tt-magnetic-item">
+						<svg
+							class="tt-stt-progress-circle"
+							width="100%"
+							height="100%"
+							viewBox="-1 -1 102 102"
+						>
+							<path
+								d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"
+								style="transition: stroke-dashoffset 10ms linear; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 307.919;"
+							>
+							</path>
+						</svg>
+					</div>
+				</div>
+				<!-- /.tt-stt-progress -->
+			</a>
+		</main>
+
+		<script client:load src="../../public/assets/js/jquery.min.js.download"
+		></script>
+		<script client:load src="../../public/assets/js/gsap.min.js.download"
+		></script>
+		<script
+			client:load
+			src="../../public/assets/js/ScrollToPlugin.min.js.download"
+		></script>
+		<script
+			client:load
+			src="../../public/assets/js/ScrollTrigger.min.js.download"></script>
+		<script
+			client:load
+			src="../../public/assets/js/imagesloaded.pkgd.min.js.download"
+		></script>
+		<script
+			client:load
+			src="../../public/assets/js/isotope.pkgd.min.js.download"></script>
+		<script client:load src="../../public/assets/js/lenis.min.js.download"
+		></script>
+		<script
+			client:load
+			src="../../public/assets/js/packery-mode.pkgd.min.js.download"
+		></script>
+		<script
+			client:load
+			src="../../public/assets/js/fancybox.umd.js.download"></script>
+		<script
+			client:load
+			src="../../public/assets/js/swiper-bundle.min.js.download"></script>
+		<script client:load src="../../public/assets/js/theme.js.download"
+		></script>
 	</body>
+	<script>
+
+
+
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag("js", new Date());
+
+		gtag("config", "G-2SLRW2WLDD");
+	</script>
 </html>
 
 <style>

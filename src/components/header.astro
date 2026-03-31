@@ -1,0 +1,137 @@
+---
+const currentPath = Astro.url.pathname;
+const isActive = (path) => currentPath === path;
+---
+
+<header
+    id="tt-header"
+    class="tt-header-alter tt-header-scroll tt-header-filled"
+>
+    <div class="tt-header-inner tt-noise">
+        <div class="tt-bg-noise"></div>
+
+        <div class="tt-header-col tt-header-col-left">
+            <div class="tt-logo">
+                <div class="magnetic-wrap">
+                    <a href="/" class="tt-magnetic-item">
+                        <!-- <img
+                            src="/assets/images/black logo tellurys.svg"
+                            class="tt-logo-dark"
+                            alt="Logo"
+                        /> -->
+                        <img
+                            src="/assets/images/white logo tellurys.svg"
+                            class="tt-logo-light"
+                            alt="Logo"
+                            style="display: block"
+                        />
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="tt-header-col tt-header-col-center">
+            <nav class="tt-main-menu tt-m-menu-center">
+                <div class="tt-main-menu-holder">
+                    <div class="tt-main-menu-inner">
+                        <div class="tt-main-menu-content">
+                            <ul class="tt-main-menu-list">
+                                <li
+                                    class={`tt-submenu-wrap tt-submenu-master ${isActive("/") ? "active" : ""}`}
+                                >
+                                    <div class="tt-submenu-trigger">
+                                        <a href="/">Accueil</a>
+                                    </div>
+                                </li>
+                                <li
+                                    class={`tt-submenu-wrap tt-submenu-master ${isActive("/about-us/") ? "active" : ""}`}
+                                >
+                                    <div class="tt-submenu-trigger">
+                                        <a href="/about-us">À propos</a>
+                                    </div>
+                                </li>
+                                <li
+                                    class={`tt-submenu-wrap tt-submenu-master ${isActive("/domains/") ? "active" : ""}`}
+                                >
+                                    <div class="tt-submenu-trigger">
+                                        <a href="#">Domaines</a>
+                                    </div>
+                                    <div class="tt-submenu">
+                                        <ul class="tt-submenu-list">
+                                            <li>
+                                                <a href="/géophysique"
+                                                    >Géophysique</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <a href="/géologie">Géologie</a>
+                                            </li>
+                                            <li>
+                                                <a href="/hydrogéologie"
+                                                    >Hydrogéologie</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/environnement-et-risques-naturels"
+                                                    >Environnement</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/génie-civil–géotechnique"
+                                                    >Génie civil – Géotechnique</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <a href="/mines-et-carrières"
+                                                    >Mines & Carrières</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/télédétection–SIG–photogrammétrie"
+                                                    >Télédétection & SIG</a
+                                                >
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+                                <li
+                                    class={`tt-submenu-wrap tt-submenu-master ${isActive("/contact/") ? "active" : ""}`}
+                                >
+                                    <div class="tt-submenu-trigger">
+                                        <a href="/contact">Contact</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div class="tt-header-col tt-header-col-right">
+            <div id="tt-m-menu-toggle-btn-wrap">
+                <div class="tt-m-menu-toggle-btn-text">
+                    <span class="tt-m-menu-text-menu">Menu</span>
+                    <span class="tt-m-menu-text-close">Close</span>
+                </div>
+                <div class="tt-m-menu-toggle-btn-holder">
+                    <a href="#" class="tt-m-menu-toggle-btn"><span></span></a>
+                </div>
+            </div>
+
+            <div class="magnetic-wrap tt-magnetic-btn">
+                <a
+                    href="/contact"
+                    class="tt-btn tt-btn-secondary hide-from-xlg tt-magnetic-item"
+                    ><span class="tt-btn-inner">
+                        <span data-hover="Contact">Demande de devis</span>
+                    </span></a
+                >
+            </div>
+        </div>
+    </div>
+</header>

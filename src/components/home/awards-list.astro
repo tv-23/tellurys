@@ -1,0 +1,93 @@
+---
+const services = [
+  {
+    title: "Géophysique",
+    description:
+      "Études du sous-sol par méthodes non destructives : résistivité, géoradar, magnétométrie et polarisation induite.",
+    info: "01",
+    url:"/géophysique"
+  },
+  {
+    title: "Géologie",
+    description:
+      "Cartographie géologique, analyse des terrains, caractérisation des structures et des formations rocheuses.",
+    info: "02",
+    url:"/géologie"
+  },
+  {
+    title: "Hydrogéologie",
+    description:
+      "Recherche des eaux souterraines, étude des aquifères et gestion durable des ressources hydriques.",
+    info: "03",
+    url:"/hydrogéologie"
+  },
+  {
+    title: "Environnement",
+    description:
+      "Études d’impact environnemental, détection des pollutions et gestion des risques naturels.",
+    info: "04",
+    url:"/environnement-et-risques-naturels"
+  },
+  {
+    title: "Génie civil – Géotechnique",
+    description:
+      "Analyse des sols pour les projets de construction, stabilité des terrains et détection des cavités.",
+    info: "05",
+    url:"/génie-civil–géotechnique"
+  },
+  {
+    title: "Mines & Carrières",
+    description:
+      "Évaluation des gisements minéraux, planification de l’exploitation et étude de la qualité des matériaux.",
+    info: "06",
+    url:"/mines-et-carrières"
+  },
+  {
+    title: "Télédétection & SIG",
+    description:
+      "Analyse de données satellitaires, cartographie thématique et modélisation 3D des territoires.",
+    info: "08",
+    url:"/télédétection–SIG–photogrammétrie"
+  },
+];
+---
+
+<div class="tt-section padding-top-xlg-120 no-padding-bottom">
+  <div class="tt-section-inner">
+    <div class="tt-heading tt-heading-xxxlg tt-heading-center">
+      <h2 class="tt-heading-title tt-text-reveal">
+        <span>Nos domaines d’expertise</span>
+      </h2>
+    </div>
+  </div>
+</div>
+<div class="tt-section">
+  <div class="tt-section-inner">
+    <div class="tt-avards-list">
+      {
+        services.map((service) => (
+          <a
+            href={service.url}
+            class="tt-avlist-item cursor-alter tt-anim-fadeinup"
+            target="_blank"
+            rel="nofollow"
+          >
+            <div class="tt-avlist-item-inner">
+              <div class="tt-avlist-col tt-avlist-col-count">
+                <div class="tt-avlist-count" />
+              </div>
+
+              <div class="tt-avlist-col tt-avlist-col-title">
+                <h4 class="tt-avlist-title">{service.title}</h4>
+              </div>
+
+              <div class="tt-avlist-col tt-avlist-col-description">
+                <div class="tt-avlist-description">{service.description}</div>
+              </div>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</div>

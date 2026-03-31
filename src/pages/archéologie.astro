@@ -1,0 +1,22 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SP from "../components/service-page.astro";
+
+const content = [
+    {
+        title: "Archéologie",
+        description: {
+            p1: "Nous mettons à disposition des archéologues des techniques non invasives pour localiser et cartographier les vestiges enfouis.",
+            p2: "Prestations : détection de structures anthropiques, délimitation des zones d’intérêt avant fouilles, cartographie géophysique de sites archéologiques.",
+        },
+        subtitle:{
+            p1:'Des techniques non invasives',
+            p2:'pour révéler les vestiges enfouis.',
+        }
+    },
+];
+---
+
+<Layout>
+    <SP  content={content} />
+</Layout>

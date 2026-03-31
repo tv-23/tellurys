@@ -1,0 +1,326 @@
+:root {
+    --orange: #bf4a1a;
+    --black: #121212;
+    --white: #efedea;
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-items {
+    color: var(--black);
+}
+
+/* --- HERO SECTION (FOND BLANC) --- */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Effet Zoom-out au chargement */
+.zoom-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(1.4);
+    opacity: 0;
+    transition: transform 2s var(--ease), opacity 1.5s var(--ease);
+}
+
+.is-active .zoom-container {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* LE TITRE (Derrière la montagne, s'arrête en haut) */
+.title-wrapper {
+    position: absolute;
+    z-index: 1;
+    /* Derrière la montagne */
+    text-align: center;
+    transform: translateY(120%);
+    /* Départ caché */
+    transition: transform 2.5s var(--ease) 0.3s;
+}
+
+#parallax-title {
+    /* Supprimez les transitions de 2s et utilisez une valeur courte pour le scroll */
+    transition: transform 0.1s cubic-bezier(0.2, 0, 0.2, 1);
+    will-change: transform;
+    /* Position initiale : au centre (ou légèrement bas) */
+    transform: translateY(0);
+}
+
+.is-active .title-wrapper {
+    transform: translateY(-85%);
+}
+
+/* Position finale visible */
+
+.title-wrapper h1 {
+    font-size: clamp(64px, 10vw, 187px);
+    line-height: 1;
+    color: var(--black);
+    text-transform: uppercase;
+    letter-spacing: -2px;
+}
+
+/* LA MONTAGNE (Votre masque noir) */
+.mountain-container {
+    position: absolute;
+    bottom: -5%;
+    width: 110%;
+    height: 75%;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+}
+
+/* Silhouette noire de base */
+.mountain-mask {
+    position: absolute;
+    inset: 0;
+    background-image: url('/assets/images/services/mountaine1.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    z-index: 0;
+}
+
+/* CALQUE DU BRUIT ANIMÉ (Clipped to mountain) */
+.noise-clipper {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    /* On masque ce conteneur à la forme de la montagne */
+    -webkit-mask-image: url('/assets/images/services/mountaine.svg');
+    mask-image: url('/assets/images/services/mountaine.svg');
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: bottom center;
+    mask-position: bottom center;
+    overflow: hidden;
+}
+
+.noise-animated {
+    position: absolute;
+    /* On déborde largement pour que les translations de l'anim ne créent pas de vide */
+    top: -10rem;
+    left: -10rem;
+    right: -20rem;
+    bottom: -20rem;
+    background-image: url('../images/bg-noise.png');
+    background-repeat: repeat;
+    background-size: 200px;
+    opacity: 1;
+    pointer-events: none;
+
+    mix-blend-mode: screen;
+    /* Application de votre animation spécifique */
+    animation: BgNoise1 1s steps(2) infinite;
+}
+
+
+
+
+/* --- VOTRE ANIMATION BGNOISE --- */
+@keyframes BgNoise1 {
+    0% {
+        transform: translate3d(0, 9rem, 0)
+    }
+
+    10% {
+        transform: translate3d(-1rem, -4rem, 0)
+    }
+
+    20% {
+        transform: translate3d(-8rem, 2rem, 0)
+    }
+
+    30% {
+        transform: translate3d(9rem, -9rem, 0)
+    }
+
+    40% {
+        transform: translate3d(-2rem, 7rem, 0)
+    }
+
+    50% {
+        transform: translate3d(-9rem, -4rem, 0)
+    }
+
+    60% {
+        transform: translate3d(2rem, 6rem, 0)
+    }
+
+    70% {
+        transform: translate3d(7rem, -8rem, 0)
+    }
+
+    80% {
+        transform: translate3d(-9rem, 1rem, 0)
+    }
+
+    90% {
+        transform: translate3d(6rem, -5rem, 0)
+    }
+
+    to {
+        transform: translate3d(-7rem, 0, 0)
+    }
+}
+
+/* Nuages (Gris pour fond blanc) */
+.cloud {
+    position: absolute;
+    width: 800px;
+    filter: grayscale(1) invert(0);
+    opacity: 0.15;
+    pointer-events: none;
+    animation: drift var(--d) linear infinite;
+}
+
+.cloud-back {
+    z-index: 0;
+    top: 10%;
+}
+
+.cloud-front {
+    z-index: 5;
+    bottom: 0%;
+    opacity: 1;
+}
+
+@keyframes drift {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(200%);
+    }
+}
+
+/* --- SERVICES SECTION --- */
+.services-section {
+    padding: 120px 5%;
+    /* background: black; */
+    position: relative;
+    z-index: 10;
+}
+
+.services-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+/* DESIGN DE CARTE : LE "TECTONIC SLAB" */
+.service-card {
+    background: #f8f8f8;
+    border-left: 4px solid var(--orange);
+    padding: 40px 25px;
+    position: relative;
+    transition: all 0.6s var(--ease);
+    cursor: pointer;
+    /* Animation d'arrivée */
+    opacity: 0;
+    transform: translateY(100px) rotateX(-30deg);
+}
+
+.is-active-services .service-card {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+}
+
+.service-card:hover .service-items {
+    color: var(--white) !important;
+}
+
+.service-card:hover {
+    background: var(--black);
+    color: var(--white);
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Petite ligne orange technique */
+.tech-line {
+    width: 30px;
+    height: 2px;
+    background: var(--orange);
+    margin-bottom: 25px;
+    transition: width 0.4s var(--ease);
+}
+
+.service-card:hover .tech-line {
+    width: 100%;
+}
+
+.service-card:hover h3 {
+    color: var(--orange) !important;
+}
+
+.service-card h3 {
+    font-size: 25px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    color: var(--black);
+    font-weight: 600;
+}
+
+.service-card p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: #666;
+    transition: color 0.3s;
+}
+
+.service-card:hover p {
+    color: #ccc;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .services-grid .service-card:nth-child(4),
+    .services-grid .service-card:nth-child(5) {
+        grid-column: span 1.5;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+
+        height: 45vh;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .services-grid .service-card:nth-child(4),
+    .services-grid .service-card:nth-child(5) {
+        grid-column: span 1;
+    }
+
+    .title-wrapper h1 {
+        font-size: 4rem;
+    }
+}

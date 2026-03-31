@@ -1,0 +1,22 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SP from "../components/service-page.astro";
+
+const content = [
+    {
+        title: "Géophysique",
+        description: {
+            p1: "Nous mobilisons les techniques géophysiques les plus avancées pour investiguer le sous‑sol sans excavation.",
+            p2: "Applications : reconnaissance géologique, détection d’anomalies et cavités, sécurisation de travaux, appui aux projets miniers et d’infrastructures. Méthodes : résistivité, polarisation induite, électromagnétisme, géoradar, magnétométrie, microgravimétrie.",
+        },
+        subtitle:{  
+            p1:'',
+            p2:'',
+        }
+    },
+];
+---
+
+<Layout>
+    <SP  content={content} />
+</Layout>

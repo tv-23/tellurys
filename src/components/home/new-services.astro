@@ -1,0 +1,148 @@
+---
+const services = [
+  {
+    title: "Géophysique" ,
+    items: ["Sismique", "Électrique", "Magnétique", "Radar (GPR)"],
+    url: "/géophysique",
+    img: "/assets/images/services/IMG-20180209-WA0010.jpg",
+  },
+  {
+    title:"Hydrogéologie",
+    items: ["Forages", "Pompages", "Essais Hydrauliques", "Modélisation SIG"],
+    url: "/hydrogéologie",
+    img: "/assets/images/services/hydrogeologie.jpeg",
+  },
+  {
+    title: "Environnement",
+    items: ["Études de Sites", "Suivi de Nappes", "Risques & Impact"],
+    url: "/environnement-et-risques-naturels",
+    img: "/assets/images/services/Environnement.jpeg",
+  },
+  {
+    title: "Géotechnique",
+    items: ["Sondages", "Essais de Sol", "Contraintes Géotechniques"],
+    url: "/génie-civil–géotechnique",
+    img: "/assets/images/services/genie-civil-géotechnique.jpeg",
+  },
+  {
+    title: "Mines & Carrières",
+    items: [
+      "Prospection",
+      "Cartographie",
+      "Géophysique Minière",
+      "Analyses Pétro",
+    ],
+    url: "/mines-et-carrières",
+    img: "/assets/images/services/mines-et-carrieres.jpeg",
+  },
+];
+---
+
+<!-- HERO SECTION -->
+<section class="hero-section" id="hero-trigger">
+  <div class="zoom-container">
+    <!-- Nuages derrière -->
+    <img
+      src="assets/images/services/cloud32.png"
+      class="cloud cloud-back"
+      style="--d: 45s;"
+    />
+
+    <!-- TITRE (Monte derrière la montagne) -->
+    <div class="title-wrapper" id="parallax-title">
+      <h1>Géologie</h1>
+      <p
+        style="letter-spacing: 10px; font-weight: 900; color: var(--orange); font-size: 22px; margin-top: 10px;"
+      >
+        Base De Tous Les Domaines
+      </p>
+    </div>
+
+    <!-- CONTENEUR MONTAGNE + NOISE -->
+    <div class="mountain-container">
+      <div class="mountain-mask"></div>
+      <div class="noise-clipper">
+        <div class="noise-animated"></div>
+      </div>
+    </div>
+
+    <!-- Nuages devant -->
+    <img
+      src="assets/images/services/cloud32-1.png"
+      class="cloud cloud-front"
+      style="--d: 25s;"
+    />
+  </div>
+</section>
+
+<!-- SERVICES SECTION -->
+<section class="services-section" id="services-trigger">
+  <div class="services-grid">
+    {
+      services.map((service, index) => (
+        <div class="service-card" style="transition-delay: 0.1s;">
+          <div class="tech-line" />
+          <h3>
+            {service.title}
+          </h3>
+
+          <ul class="service-items">
+            {service.items.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<script>
+  const heroSection = document.getElementById("hero-trigger");
+  const parallaxTitle = document.getElementById("parallax-title");
+  const servicesSection = document.getElementById("services-trigger");
+
+  window.addEventListener("scroll", () => {
+    const rect = heroSection.getBoundingClientRect();
+    const viewHeight = window.innerHeight;
+
+    // Si la section est visible à l'écran
+    if (rect.top <= viewHeight && rect.bottom >= 0) {
+      // Calcul du ratio de progression (0 quand la section entre en bas, 1 quand elle est en haut)
+      let progress = (viewHeight - rect.top) / viewHeight;
+      progress = Math.min(Math.max(progress, 0), 1); // Bloquer entre 0 et 1
+
+      /**
+       * LOGIQUE DE MOUVEMENT :
+       * Départ (progress 0) : translateY(250px) -> Caché/Centre
+       * Arrivée (progress 1) : translateY(-200px) -> Haut
+       */
+      const startY = 300;
+      const endY = -250;
+      const currentY = startY - progress * (startY - endY);
+
+      parallaxTitle.style.transform = `translateY(${currentY}px)`;
+    }
+  });
+  // Déclencheurs au scroll (Intersection Observer)
+  const observerOptions = { threshold: 0.2 };
+
+  const heroObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-active");
+      }
+    });
+  }, observerOptions);
+
+  const servicesObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-active-services");
+      }
+    });
+  }, observerOptions);
+
+  heroObserver.observe(document.getElementById("hero-trigger"));
+  servicesObserver.observe(document.getElementById("services-trigger"));
+</script>
