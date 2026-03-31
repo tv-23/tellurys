@@ -88,10 +88,9 @@ const projects = [
 							>
 								<div class="tt-ppli-preview-image">
 									<img
-										src={project.image}
+										data-src={project.image}
 										alt={project.title}
-										 loading="lazy"
-  decoding="async"
+										class="lazy-img"
 									/>
 								</div>
 							</div>
@@ -122,3 +121,13 @@ const projects = [
 		</div>
 	</div>
 </div>
+
+<script>
+	window.addEventListener("load", () => {
+		const images = document.querySelectorAll("img.lazy-img");
+
+		images.forEach((img) => {
+			img.src = img.dataset.src;
+		});
+	});
+</script>
