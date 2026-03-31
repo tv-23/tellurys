@@ -57,16 +57,14 @@ import "../../public/assets/css/new-services.css";
 
 			<slot />
 
-			
-		
 			<Message />
 
-			<Footer/>
+			<Footer />
 			<!-- End tt-footer -->
 
 			<!-- Begin scroll to top button
 				================================ -->
-				<a
+			<a
 				href="#"
 				id="chat-button"
 				class="chat-icon"
@@ -99,43 +97,35 @@ import "../../public/assets/css/new-services.css";
 			</a>
 		</main>
 
-		<script client:load src="../../public/assets/js/jquery.min.js.download"
-		></script>
-		<script client:load src="../../public/assets/js/gsap.min.js.download"
-		></script>
-		<script
-			client:load
-			src="../../public/assets/js/ScrollToPlugin.min.js.download"
-		></script>
-		<script
-			client:load
-			src="../../public/assets/js/ScrollTrigger.min.js.download"></script>
-		<script
-			client:load
-			src="../../public/assets/js/imagesloaded.pkgd.min.js.download"
-		></script>
-		<script
-			client:load
-			src="../../public/assets/js/isotope.pkgd.min.js.download"></script>
-		<script client:load src="../../public/assets/js/lenis.min.js.download"
-		></script>
-		<script
-			client:load
-			src="../../public/assets/js/packery-mode.pkgd.min.js.download"
-		></script>
-		<script
-			client:load
-			src="../../public/assets/js/fancybox.umd.js.download"></script>
-		<script
-			client:load
-			src="../../public/assets/js/swiper-bundle.min.js.download"></script>
-		<script client:load src="../../public/assets/js/theme.js.download"
-		></script>
+	<!-- jQuery (FIXED) -->
+  <script is:inline src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<!-- GSAP (FIXED CDN) -->
+  <script is:inline src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script is:inline src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script is:inline src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+<!-- Other libs -->
+<script is:inline  src=" https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js
+"></script>
+<script  is:inline src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
+<script is:inline  src="https://cdnjs.cloudflare.com/ajax/libs/packery/2.1.2/packery.pkgd.min.js"></script>
+
+<!-- Lenis --> 
+<script is:inline src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<!-- Fancybox -->
+<script is:inline src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+
+<!-- Swiper -->
+<script is:inline  src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<!-- Your theme LAST -->
+<script src="../../public/assets/js/theme.js"></script>
+
 	</body>
 	<script>
-
-
-
+		console.log("jQuery:", window.jQuery);
+console.log("GSAP:", window.gsap);
+console.log("Lenis:", window.Lenis);
 		window.dataLayer = window.dataLayer || [];
 		function gtag() {
 			dataLayer.push(arguments);

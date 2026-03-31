@@ -1,5 +1,5 @@
 {
   "extends": "astro/tsconfigs/strict",
-  "include": [".astro/types.d.ts", "**/*", "src/assets/js/ScrollToPlugin.min.js", "src/assets/js/packery-mode.pkgd.min.js", "src/assets/js/lenis.min.js", "src/assets/js/isotope.pkgd.min.js", "src/assets/js/imagesloaded.pkgd.min.js", "src/assets/js/gsap.min.js", "src/assets/js/ScrollTrigger.min.js", "src/assets/js/swiper-bundle.min.js"],
+  "include": [".astro/types.d.ts", "**/*", "src/assets/js/ScrollToPlugin.min.js", "src/assets/js/packery-mode.pkgd.min.js", "src/assets/js/lenis.min.js", "src/assets/js/isotope.pkgd.min.js", "src/assets/js/imagesloaded.pkgd.min.js", "src/assets/js/gsap.min.js", "src/assets/js/ScrollTrigger.min.js", "src/assets/js/swiper-bundle.min.js", "public/assets/js/gsap.min.js", "public/assets/js/imagesloaded.pkgd.min.js", "public/assets/js/isotope.pkgd.min.js", "public/assets/js/lenis.min.js", "public/assets/js/packery-mode.pkgd.min.js", "public/assets/js/ScrollToPlugin.min.js", "public/assets/js/ScrollTrigger.min.js", "public/assets/js/swiper-bundle.min.js"],
   "exclude": ["dist"]
 }
