@@ -2644,7 +2644,7 @@ body.is-mobile .ph-mask {
 	height: 50px;
 	line-height: 1;
 	font-size: 20px;
-	color: var(--tt-main-color) !important;
+	color: var(--tt-ball-color) !important;
 	transition: color .2s;
 }
 
@@ -3020,12 +3020,12 @@ body.ph-video-on:not(.ph-bg-is-light-on) #page-header a {
 
 body.ph-image-on:not(.ph-bg-is-light-on) #page-header .tt-scroll-down text,
 body.ph-video-on:not(.ph-bg-is-light-on) #page-header .tt-scroll-down text {
-	fill: var(--tt-main-color);
+	fill: var(--tt-force-to-light-color);
 }
 
 body.ph-image-on:not(.ph-bg-is-light-on) #page-header .tt-scroll-down .tt-scrd-icon,
 body.ph-video-on:not(.ph-bg-is-light-on) #page-header .tt-scroll-down .tt-scrd-icon {
-	color: var(--tt-main-color);
+	color: var(--tt-ball-color);
 }
 
 body.ph-image-on:not(.ph-bg-is-light-on) #page-header .ph-share-trigger,

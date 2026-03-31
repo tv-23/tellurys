@@ -218,9 +218,14 @@
     position: relative;
     z-index: 10;
 }
-
+.tech-line-title{
+    color: var(--black);
+}
+.service-card:hover .tech-line-title{
+    color: var(--orange) !important;
+}
 .services-grid {
-    max-width: 1400px;
+    max-width: 100%;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(5, 1fr);

@@ -25,7 +25,7 @@ const services = [
     img: "/assets/images/services/genie-civil-géotechnique.jpeg",
   },
   {
-    title: "Mines & Carrières",
+    title: "Extraction",
     items: [
       "Prospection",
       "Cartographie",
@@ -43,7 +43,7 @@ const services = [
   <div class="zoom-container">
     <!-- Nuages derrière -->
     <img
-      data-src="assets/images/services/cloud32.webp"
+      data-src="/assets/images/services/cloud32.webp"
       class="cloud cloud-back"
       style="--d: 45s;"
       alt="cloud-1-services"
@@ -69,7 +69,7 @@ const services = [
 
     <!-- Nuages devant -->
     <img
-      data-src="assets/images/services/cloud32-1.webp"
+      data-src="/assets/images/services/cloud32-1.webp"
       class="cloud cloud-front"
       style="--d: 25s;"
       alt="cloud-2-services"
@@ -84,7 +84,7 @@ const services = [
       services.map((service, index) => (
         <div class="service-card" style="transition-delay: 0.1s;">
           <div class="tech-line" />
-          <h2>{service.title}</h2>
+          <h2 class="tech-line-title">{service.title}</h2>
 
           <ul class="service-items">
             {service.items.map((item) => (
