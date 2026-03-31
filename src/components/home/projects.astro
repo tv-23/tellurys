@@ -91,6 +91,8 @@ const projects = [
 										data-src={project.image}
 										alt={project.title}
 										class="lazy-img"
+										loading="lazy"
+										decoding="async"
 									/>
 								</div>
 							</div>
@@ -125,9 +127,10 @@ const projects = [
 <script>
 	window.addEventListener("load", () => {
 		setTimeout(() => {
-			
+			// alert("loadedgg");
+
 			const images = document.querySelectorAll("img.lazy-img");
-			
+
 			images.forEach((img) => {
 				img.src = img.dataset.src;
 			});
