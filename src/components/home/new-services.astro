@@ -42,11 +42,12 @@ const services = [
 <section class="hero-section" id="hero-trigger">
   <div class="zoom-container">
     <!-- Nuages derrière -->
-    <img
-      src="assets/images/services/cloud32.webp"
-      class="cloud cloud-back"
-      style="--d: 45s;"
-    />
+   <img
+  src="assets/images/services/cloud32.webp"
+  data-src="assets/images/services/cloud32.webp"
+  class="cloud cloud-back"
+  style="--d: 45s;"
+/>
 
     <!-- TITRE (Monte derrière la montagne) -->
     <div class="title-wrapper" id="parallax-title">
@@ -67,11 +68,12 @@ const services = [
     </div>
 
     <!-- Nuages devant -->
-    <img
-      src="assets/images/services/cloud32-1.webp"
-      class="cloud cloud-front"
-      style="--d: 25s;"
-    />
+     <img
+  src="assets/images/services/cloud32-1.webp"
+  data-src="assets/images/services/cloud32-1.webp"
+  class="cloud cloud-front"
+  style="--d: 25s;"
+/>
   </div>
 </section>
 
@@ -145,4 +147,36 @@ const services = [
 
   heroObserver.observe(document.getElementById("hero-trigger"));
   servicesObserver.observe(document.getElementById("services-trigger"));
+
+
+
+  document.addEventListener("DOMContentLoaded", () => {
+  const trigger = document.querySelector("#hero-trigger");
+  if (!trigger) return;
+
+  const images = document.querySelectorAll("#hero-trigger img.cloud");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        images.forEach((img) => {
+          const realSrc = img.dataset.src;
+          if (realSrc) {
+            img.src = realSrc;
+          }
+        });
+
+        observer.unobserve(trigger);
+      });
+    },
+    {
+      threshold: 0.3,
+      rootMargin: "200px",
+    }
+  );
+
+  observer.observe(trigger);
+});
 </script>
